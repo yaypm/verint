@@ -1,0 +1,118 @@
+{
+  "name": "custom.remote.python.verint",
+  "version": "1.0",
+  "type": "python",
+  "entity": "CUSTOM_DEVICE",
+  "metricGroup": "verint",
+  "technologies": ["Verint"],
+  "favicon": "https://store-images.s-microsoft.com/image/apps.44525.3a63b285-8048-4661-bb17-4ef0ac6be160.e0eae3ea-ea42-443d-951e-773e59753f70.9f66e6dd-817a-4726-a4bc-d2d4a1d124d6",
+  "source": {
+    "package": "verint_activegate_plugin",
+    "className": "VerintPluginRemote",
+    "install_requires": ["requests","xmltodict"],
+    "activation": "Remote"
+  },
+  "metrics": [
+    {
+      "entity": "CUSTOM_DEVICE",
+      "timeseries": {
+        "key": "status_level",
+        "unit": "Count",
+        "displayname": "Status level"
+      }
+    }
+  ],
+    "properties" : [
+    {
+	  "key" : "url",
+      "type" :  "String"
+    },
+    {
+      "key" : "username",
+        "type" :  "String"
+    },
+    {
+      "key" : "password",
+      "type" :  "Password"
+    },
+    {
+      "key" : "project_id",
+      "type" :  "String"
+    },
+    {
+      "key" : "token",
+      "type" :  "Password"
+    },
+    {
+      "key" : "dt_url",
+      "type" :  "String"
+    }
+  ],
+  "configUI": {
+        "displayName": "Verint Survey Ingestion",
+        "properties": [
+			{
+                "key" : "url",
+			    "displayName" :  "URL",
+                "displayHint": "https://efmpreview.verintefm.com",
+                "defaultValue": "https://efmpreview.verintefm.com"
+            },
+            {
+                "key" : "username",
+                "displayName" :  "Username",
+                "displayHint": "user@company.com"
+            },
+            {
+                "key" : "password",
+			    "displayName" :  "Password"
+			},
+            {
+                "key" : "project_id",
+                "displayName" :  "Project ID",
+                "displayHint": "1234567890"
+            },
+            {
+                "key" : "token",
+			    "displayName" :  "API token (Metric V2 ingest and Log V2 ingest)"
+			},
+            {
+                "key" : "dt_url",
+                "displayName" :  "Dynatrace URL",
+                "displayHint": "https://ncg15044.dev.dynatracelabs.com/"
+            }
+        ]
+    },
+     "ui": {
+       "keymetrics" : [
+      {
+        "key": "status_level",
+        "aggregation": "avg",
+        "mergeaggregation": "avg",
+        "displayname": "Status level"
+      }
+    ],
+        "charts": [
+            {
+                "group": "Verint",
+                "title": "Performance metrics",
+                "description": "Status of the Verint plugin.",
+                "explanation": "Not used",
+                "link": "https://www.hpe.com/uk/en/storage/nimble.html",
+                "series": [
+                    {
+                        "key": "status_level",
+                        "displayname": "Status level",
+                        "aggregation": "avg",
+                        "mergeaggregation": "avg",
+                        "color": "#00a6fb",
+                        "seriestype": "line",
+                        "rightaxis": false,
+                        "stacked": false,
+                        "unit": "Count",
+                        "metricexplanation": "Status level of the Verint plugin."
+                    }
+                ]
+            }
+        ]
+    }
+}
