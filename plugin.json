@@ -1,6 +1,6 @@
 {
   "name": "custom.remote.python.verint",
-  "version": "1.0",
+  "version": "1.0.2",
   "type": "python",
   "entity": "CUSTOM_DEVICE",
   "metricGroup": "verint",
@@ -9,7 +9,7 @@
   "source": {
     "package": "verint_activegate_plugin",
     "className": "VerintPluginRemote",
-    "install_requires": ["requests","xmltodict"],
+    "install_requires": ["requests","xmltodict","textblob"],
     "activation": "Remote"
   },
   "metrics": [
